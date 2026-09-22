@@ -11,19 +11,25 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      # Explicit combinations rather than a cross-product: PHP, Testbench and Pest each
+      # track the Laravel major, so most of a generated matrix would be invalid.
+      #   L10 → PHP 8.1-8.3, Testbench 8, Pest 2 (PHPUnit 10)
+      #   L11 → PHP 8.2-8.4, Testbench 9
+      #   L12 → PHP 8.2-8.5, Testbench 10
+      #   L13 → PHP 8.3-8.5, Testbench 11
       matrix:
-        php: ['8.2', '8.3', '8.4']
-        laravel: ['11.*', '12.*']
-        # Livewire is optional, and v4 resolves components differently to v3 —
-        # the adapter supports both, so both get exercised.
-        livewire: ['3.*', '4.*']
         include:
-          - laravel: '11.*'
-            testbench: '9.*'
-          - laravel: '12.*'
-            testbench: '10.*'
+          - { php: '8.2', laravel: '10.*', testbench: '8.*',  pest: '^2.0', livewire: '3.*', eol: true }
+          - { php: '8.3', laravel: '10.*', testbench: '8.*',  pest: '^2.0', livewire: '3.*', eol: true }
+          - { php: '8.2', laravel: '11.*', testbench: '9.*',  pest: '^3.0', livewire: '3.*', eol: true }
+          - { php: '8.4', laravel: '11.*', testbench: '9.*',  pest: '^3.0', livewire: '4.*', eol: true }
+          - { php: '8.2', laravel: '12.*', testbench: '10.*', pest: '^3.0', livewire: '3.*' }
+          - { php: '8.3', laravel: '12.*', testbench: '10.*', pest: '^4.0', livewire: '4.*' }
+          - { php: '8.4', laravel: '12.*', testbench: '10.*', pest: '^4.0', livewire: '3.*' }
+          - { php: '8.3', laravel: '13.*', testbench: '11.*', pest: '^4.0', livewire: '4.*' }
+          - { php: '8.4', laravel: '13.*', testbench: '11.*', pest: '^4.0', livewire: '4.*' }
 
-    name: PHP ${{ matrix.php }} · Laravel ${{ matrix.laravel }} · Livewire ${{ matrix.livewire }}
+    name: PHP ${{ matrix.php }} · L${{ matrix.laravel }} · Livewire ${{ matrix.livewire }}
 
     steps:
       - uses: actions/checkout@v4
@@ -34,11 +40,21 @@ jobs:
           extensions: dom, curl, libxml, mbstring, zip, pdo, sqlite, pdo_sqlite
           coverage: none
 
+      # Laravel 10 and 11 are past their security-support window and carry advisories that
+      # will never be patched, so Composer refuses to resolve them. We still test against
+      # them because users on those versions can install this package perfectly well —
+      # their framework is already pinned and never re-resolved. Scoped to EOL jobs only,
+      # so 12 and 13 stay audited.
+      - name: Allow resolving EOL framework versions
+        if: matrix.eol
+        run: composer config --no-plugins policy.advisories.block false
+
       - name: Install dependencies
         run: |
           composer require --dev --no-update \
             "laravel/framework:${{ matrix.laravel }}" \
             "orchestra/testbench:${{ matrix.testbench }}" \
+            "pestphp/pest:${{ matrix.pest }}" \
             "livewire/livewire:${{ matrix.livewire }}"
           composer update --prefer-dist --no-interaction --no-progress
 
@@ -53,7 +69,7 @@ jobs:
 
       - uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3'
+          php-version: '8.4'
           coverage: none
 
       - run: composer install --prefer-dist --no-interaction --no-progress

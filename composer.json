@@ -12,22 +12,22 @@
     "authors": [
         {
             "name": "Ram Sharma",
-            "email": "ram@weblog-media.com"
+            "email": "rns6393@gmail.com"
         }
     ],
     "require": {
         "php": "^8.2",
-        "illuminate/contracts": "^11.0|^12.0",
-        "illuminate/database": "^11.0|^12.0",
-        "illuminate/support": "^11.0|^12.0",
-        "illuminate/view": "^11.0|^12.0"
+        "illuminate/contracts": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/database": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/support": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/view": "^10.0|^11.0|^12.0|^13.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^9.0|^10.0",
-        "pestphp/pest": "^3.0|^4.0",
+        "larastan/larastan": "^2.9|^3.0",
+        "laravel/pint": "^1.18",
         "livewire/livewire": "^3.0|^4.0",
-        "larastan/larastan": "^3.0",
-        "laravel/pint": "^1.18"
+        "orchestra/testbench": "^8.0|^9.0|^10.0|^11.0",
+        "pestphp/pest": "^2.0|^3.0|^4.0"
     },
     "suggest": {
         "livewire/livewire": "Required only if you use the Livewire <livewire:advanced-filters::panel /> adapter."
@@ -59,7 +59,9 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "policy": {
+        }
     },
     "extra": {
         "laravel": {

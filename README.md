@@ -25,7 +25,8 @@ composer require laratribe/laravel-advanced-filters
 The service provider auto-registers and the PHP side works immediately. For the shipped UI,
 see [frontend assets](https://laratribe.github.io/laravel-advanced-filters/frontends/blade-alpine#assets-and-styling).
 
-Requires PHP 8.2+ and Laravel 11 or 12. Livewire 3/4 and Alpine are optional.
+Requires **PHP 8.2+** and **Laravel 10, 11, 12 or 13**. Livewire 3/4 and Alpine are optional.
+
 
 ## Quick start
 
@@ -129,12 +130,27 @@ composer lint     # Pint
 composer analyse  # PHPStan
 ```
 
-## Contributing & security
+## Security
 
-Issues and pull requests welcome. `NumericFilter::havingExpression()` accepts raw SQL and is
-**developer-supplied, never user input** — values are always bound as parameters. If you find
-a security issue, please email ram@weblog-media.com rather than opening a public issue.
+`NumericFilter::havingExpression()` accepts raw SQL and is **developer-supplied, never user
+input** — values are always bound as parameters. If you find a security issue, please email
+rns6393@gmail.com rather than opening a public issue.
 
-## License
+## 👤 Author
 
-MIT. See [LICENSE.md](LICENSE.md).
+**Ram Sharma**
+
+- GitHub: [@rnsharma93](https://github.com/rnsharma93)
+- Email: rns6393@gmail.com
+
+If you find this package useful, please consider starring the repository on GitHub!
+
+## 📜 License & Open Source
+
+**Laravel Advanced Filters** is open-source software licensed under the
+[MIT license](LICENSE.md).
+
+You are completely free to use, modify and distribute this package in both personal and
+commercial projects. Contributions, issues and feature requests are always welcome — have a
+look at the [issues page](https://github.com/laratribe/laravel-advanced-filters/issues) if
+you'd like to contribute.

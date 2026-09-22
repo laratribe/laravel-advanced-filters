@@ -13,7 +13,7 @@ required. If you want the shipped UI, also set up
 | | |
 |---|---|
 | PHP | 8.2+ |
-| Laravel | 11 or 12 |
+| Laravel | 10, 11, 12 or 13 |
 | Livewire *(optional)* | 3 or 4 — only for the Livewire panel |
 | Alpine.js *(optional)* | only for the Blade panel |
 

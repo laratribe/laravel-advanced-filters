@@ -60,6 +60,11 @@ One backend definition drives all four; none of them reimplement the filter rule
 - Bundled vanilla stylesheet, themed with CSS custom properties — no Tailwind required.
 - Opt-in Tailwind theme (v3 and v4), publishable, with slot and `class_prefix` parity.
 
+### Requirements
+
+PHP 8.2+ and Laravel 10, 11, 12 or 13. Livewire 3/4 and Alpine are optional. Verified
+against Laravel 10.50, 11.56, 12.69 and 13.32.
+
 ### Quality
 
 - 107 Pest tests covering the engine, every filter type, the Blade panel, the Livewire
