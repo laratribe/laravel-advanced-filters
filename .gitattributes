@@ -8,3 +8,7 @@
 .editorconfig       export-ignore
 phpunit.xml.dist    export-ignore
 testbench.yaml      export-ignore
+/docs               export-ignore
+package.json        export-ignore
+phpstan.neon        export-ignore
+phpstan-baseline.neon export-ignore
