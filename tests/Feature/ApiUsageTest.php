@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-use Laratribe\AdvancedFilters\Support\FilterableTable;
+use Laratribe\AdvancedFilters\Support\FilteredQuery;
 use Laratribe\AdvancedFilters\Tests\Fixtures\FilterTestModel;
 
 /**
@@ -37,7 +37,7 @@ it('reads filter rows from a JSON request body', function () {
         ],
     ]));
 
-    $table = FilterableTable::for(FilterTestModel::class)->fromRequest($request);
+    $table = FilteredQuery::for(FilterTestModel::class)->fromRequest($request);
 
     expect($table->get()->pluck('name')->all())->toBe(['Carol'])
         ->and($table->activeFilters())->toBe([
@@ -52,7 +52,7 @@ it('paginates into a JSON-serialisable payload', function () {
     ]]);
 
     $payload = json_decode((string) json_encode(
-        FilterableTable::for(FilterTestModel::class)->fromRequest($request)->paginate(1)
+        FilteredQuery::for(FilterTestModel::class)->fromRequest($request)->paginate(1)
     ), true);
 
     expect($payload)->toHaveKeys(['data', 'current_page', 'total', 'per_page'])
@@ -66,7 +66,7 @@ it('rejects a column the model does not expose', function () {
         ['field' => 'password', 'operator' => 'contains', 'value' => 'x'],
     ]]);
 
-    $table = FilterableTable::for(FilterTestModel::class)->fromRequest($request);
+    $table = FilteredQuery::for(FilterTestModel::class)->fromRequest($request);
 
     // The unknown column is dropped rather than erroring, and never reaches SQL.
     expect($table->activeFilters())->toHaveCount(1)
@@ -79,5 +79,5 @@ it('rejects an operator the field does not allow', function () {
         ['field' => 'score', 'operator' => 'contains', 'value' => '1'],
     ]]);
 
-    expect(FilterableTable::for(FilterTestModel::class)->fromRequest($request)->activeFilters())->toBe([]);
+    expect(FilteredQuery::for(FilterTestModel::class)->fromRequest($request)->activeFilters())->toBe([]);
 });

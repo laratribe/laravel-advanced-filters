@@ -3,7 +3,7 @@
 All notable changes to `laratribe/laravel-advanced-filters` are documented here.
 This project follows [Semantic Versioning](https://semver.org). The public API is the
 wire contract (field definitions / filter rows), the `Clause` enum string values, and the
-`HasFilters` / `BaseFilter` / `FilterableTable` method signatures.
+`HasFilters` / `BaseFilter` / `FilteredQuery` method signatures.
 
 ## [1.0.0] - 2026-09-22
 
@@ -17,8 +17,9 @@ First release.
   `HAVING` for aggregates via `havingExpression()`), `DateFilter` (strict `Y-m-d`), and
   `SetFilter` (`options()`, `pluckOptionsFromModel()`, `multiple()`, `withoutClause()`).
 - `FilterSet` — the shared engine, usable standalone against raw query builders with no model.
-- `FilterableTable` — optional controller sugar folding normalise → apply → paginate into one
-  chain.
+- `FilteredQuery` — optional controller sugar folding normalise → apply → paginate into one
+  chain. Named for what it produces: it builds a filtered query, and knows nothing about
+  tables, columns or rendering.
 - `filters()` is an allow-list: an undeclared field, a disallowed operator, or a value that
   fails validation is dropped before it reaches SQL rather than raising an error.
 

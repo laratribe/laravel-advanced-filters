@@ -66,22 +66,22 @@ They're the *normalised* rows — invalid ones already dropped. Echoing those to
 rather than the raw input keeps the chips honest about what was actually applied.
 :::
 
-### Shortcut: `FilterableTable`
+### Shortcut: `FilteredQuery`
 
 For a plain "filter and paginate" page, this folds the three calls into one chain. Requires
 the model to `implements Filterable` — the trait already satisfies it.
 
 ```php
-use Laratribe\AdvancedFilters\Support\FilterableTable;
+use Laratribe\AdvancedFilters\Support\FilteredQuery;
 
-$table = FilterableTable::for(Product::class)
+$query = FilteredQuery::for(Product::class)
     ->query(fn ($q) => $q->where('active', true))   // optional custom base query
     ->fromRequest($request);
 
 return view('products.index', [
-    'products'      => $table->paginate(25),
-    'filterFields'  => $table->fieldDefinitions(),
-    'activeFilters' => $table->activeFilters(),
+    'products'      => $query->paginate(25),
+    'filterFields'  => $query->fieldDefinitions(),
+    'activeFilters' => $query->activeFilters(),
 ]);
 ```
 

@@ -15,14 +15,14 @@ use Laratribe\AdvancedFilters\Contracts\Filterable;
 /**
  * Thin controller-side helper: request → normalise → apply → paginate in one chain.
  *
- *     $table = FilterableTable::for(Campaign::class)
+ *     $query = FilteredQuery::for(Campaign::class)
  *         ->query(fn ($q) => $q->withMetrics())   // optional custom base query
  *         ->fromRequest($request);
  *
  *     return view('campaigns.index', [
- *         'campaigns'     => $table->paginate(50),
- *         'filterFields'  => $table->fieldDefinitions(),
- *         'activeFilters' => $table->activeFilters(),
+ *         'campaigns'     => $query->paginate(50),
+ *         'filterFields'  => $query->fieldDefinitions(),
+ *         'activeFilters' => $query->activeFilters(),
  *     ]);
  *
  * It is additive sugar over {@see HasFilters} — drop down
@@ -30,7 +30,7 @@ use Laratribe\AdvancedFilters\Contracts\Filterable;
  *
  * @phpstan-type FilterRow array{field: string, operator: string, value?: mixed, valueTo?: mixed}
  */
-class FilterableTable
+class FilteredQuery
 {
     /** @var class-string<Filterable> */
     protected string $model;

@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Laratribe\AdvancedFilters\Support\FilterableTable;
+use Laratribe\AdvancedFilters\Support\FilteredQuery;
 use Workbench\App\Models\Product;
 
 // Serve the package's Alpine controller as an ES module for the demo pages.
@@ -22,12 +22,12 @@ Route::get('/assets/advanced-filters.css', function () {
 
 // Blade + Alpine demo.
 Route::get('/', function (Request $request) {
-    $table = FilterableTable::for(Product::class)->fromRequest($request);
+    $query = FilteredQuery::for(Product::class)->fromRequest($request);
 
     return view('workbench::index', [
-        'products' => $table->paginate(15),
-        'filterFields' => $table->fieldDefinitions(),
-        'activeFilters' => $table->activeFilters(),
+        'products' => $query->paginate(15),
+        'filterFields' => $query->fieldDefinitions(),
+        'activeFilters' => $query->activeFilters(),
     ]);
 })->name('products.index');
 

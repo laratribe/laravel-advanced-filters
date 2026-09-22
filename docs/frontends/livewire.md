@@ -11,7 +11,7 @@ component listens and re-queries:
 
 ```php
 use Livewire\Attributes\On;
-use Laratribe\AdvancedFilters\Support\FilterableTable;
+use Laratribe\AdvancedFilters\Support\FilteredQuery;
 
 #[On('advanced-filters-updated')]
 public function updateFilters(array $filters): void
@@ -22,7 +22,7 @@ public function updateFilters(array $filters): void
 
 public function render()
 {
-    $products = FilterableTable::for(Product::class)->withFilters($this->filters)->paginate(25);
+    $products = FilteredQuery::for(Product::class)->withFilters($this->filters)->paginate(25);
 
     return view('products.results', compact('products'));
 }

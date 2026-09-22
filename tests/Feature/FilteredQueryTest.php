@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use Laratribe\AdvancedFilters\Support\FilterableTable;
+use Laratribe\AdvancedFilters\Support\FilteredQuery;
 use Laratribe\AdvancedFilters\Tests\Fixtures\FilterTestModel;
 
 beforeEach(function () {
@@ -21,7 +21,7 @@ it('reads, normalises and applies filters from a request', function () {
         ],
     ]);
 
-    $table = FilterableTable::for(FilterTestModel::class)->fromRequest($request);
+    $table = FilteredQuery::for(FilterTestModel::class)->fromRequest($request);
 
     expect($table->get()->pluck('name')->all())->toEqualCanonicalizing(['Bob', 'Carol'])
         ->and($table->activeFilters())->toBe([
@@ -30,7 +30,7 @@ it('reads, normalises and applies filters from a request', function () {
 });
 
 it('accepts a custom base query', function () {
-    $table = FilterableTable::for(FilterTestModel::class)
+    $table = FilteredQuery::for(FilterTestModel::class)
         ->query(fn ($q) => $q->where('status', '!=', 'archived'))
         ->withFilters([
             ['field' => 'score', 'operator' => 'greater_than', 'value' => '5'],
@@ -40,17 +40,17 @@ it('accepts a custom base query', function () {
 });
 
 it('paginates with the query string appended', function () {
-    $table = FilterableTable::for(FilterTestModel::class)->withFilters([]);
+    $table = FilteredQuery::for(FilterTestModel::class)->withFilters([]);
 
     expect($table->paginate(2)->total())->toBe(3);
 });
 
 it('exposes field definitions', function () {
-    $table = FilterableTable::for(FilterTestModel::class);
+    $table = FilteredQuery::for(FilterTestModel::class);
 
     expect($table->fieldDefinitions())->toHaveCount(5);
 });
 
 it('rejects a model that is not Filterable', function () {
-    FilterableTable::for(Model::class);
+    FilteredQuery::for(Model::class);
 })->throws(InvalidArgumentException::class);

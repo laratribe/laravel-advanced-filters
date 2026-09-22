@@ -2,7 +2,7 @@
 
 namespace Workbench\App\Livewire;
 
-use Laratribe\AdvancedFilters\Support\FilterableTable;
+use Laratribe\AdvancedFilters\Support\FilteredQuery;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -28,7 +28,7 @@ class ProductResults extends Component
 
     public function render()
     {
-        $products = FilterableTable::for(Product::class)
+        $products = FilteredQuery::for(Product::class)
             ->withFilters($this->filters)
             ->paginate(15);
 

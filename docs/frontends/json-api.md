@@ -8,7 +8,7 @@ use the package as a filter engine and talk to it through
 Two endpoints are usually enough:
 
 ```php
-use Laratribe\AdvancedFilters\Support\FilterableTable;
+use Laratribe\AdvancedFilters\Support\FilteredQuery;
 
 // GET /api/products/filters — the column list, for building your UI
 public function filters()
@@ -20,7 +20,7 @@ public function filters()
 public function index(Request $request)
 {
     return response()->json(
-        FilterableTable::for(Product::class)->fromRequest($request)->paginate(25)
+        FilteredQuery::for(Product::class)->fromRequest($request)->paginate(25)
     );
 }
 ```
@@ -69,4 +69,4 @@ can never reach the query.
 
 Adding your own validation layer on top is redundant. If you'd rather reject bad input
 loudly than ignore it, compare `count($request->input('column_filters'))` against
-`count($table->activeFilters())` and 422 on a mismatch.
+`count($query->activeFilters())` and 422 on a mismatch.

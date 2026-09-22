@@ -66,7 +66,7 @@ trait HasFilters
 
     /**
      * Alias of {@see normalizeFilters()} — the cleaned, validated rows to hand back to the
-     * frontend as the active filters (mirrors FilterableTable::activeFilters()).
+     * frontend as the active filters (mirrors FilteredQuery::activeFilters()).
      *
      * @return array<int, FilterRow>
      */
