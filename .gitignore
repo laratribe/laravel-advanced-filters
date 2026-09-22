@@ -1,0 +1,14 @@
+/vendor
+/build
+composer.lock
+.phpunit.result.cache
+.phpunit.cache
+/workbench/database/*.sqlite
+/.idea
+/.vscode
+
+# Docs site (VitePress)
+/node_modules
+/docs/.vitepress/dist
+/docs/.vitepress/cache
+package-lock.json

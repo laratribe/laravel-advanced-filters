@@ -1,0 +1,21 @@
+providers:
+  - Workbench\App\Providers\WorkbenchServiceProvider
+
+migrations: false
+
+env:
+  - APP_KEY="base64:CP9ZqO3BUejNzVwlqp1AepHahJtD3fIRFSdJHYjLmx4="
+  - DB_CONNECTION=sqlite
+  - DB_DATABASE=workbench/database/database.sqlite
+
+workbench:
+  start: '/'
+  welcome: false
+  discovers:
+    web: true
+    api: false
+    commands: false
+  build:
+    - asset-publish
+    - create-sqlite-db
+    - migrate:fresh

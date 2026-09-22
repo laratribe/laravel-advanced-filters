@@ -1,0 +1,43 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Support/FilterSet.php
+
+		-
+			message: '#^Call to an undefined static method Laratribe\\AdvancedFilters\\Contracts\\Filterable\:\:query\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 2
+			path: src/Support/FilterableTable.php
+
+		-
+			message: '#^Generic type Illuminate\\Contracts\\Pagination\\LengthAwarePaginator\<Illuminate\\Database\\Eloquent\\Model\> in PHPDoc tag @return does not specify all template types of interface Illuminate\\Contracts\\Pagination\\LengthAwarePaginator\: TKey, TValue$#'
+			identifier: generics.lessTypes
+			count: 1
+			path: src/Support/FilterableTable.php
+
+		-
+			message: '#^Method Laratribe\\AdvancedFilters\\Support\\FilterableTable\:\:paginate\(\) should return Illuminate\\Contracts\\Pagination\\LengthAwarePaginator\<Illuminate\\Database\\Eloquent\\Model\> but returns Illuminate\\Pagination\\LengthAwarePaginator\<int, Illuminate\\Database\\Eloquent\\Model\>\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Support/FilterableTable.php
+
+		-
+			message: '#^Type Illuminate\\Database\\Eloquent\\Model in generic type Illuminate\\Contracts\\Pagination\\LengthAwarePaginator\<Illuminate\\Database\\Eloquent\\Model\> in PHPDoc tag @return is not subtype of template type TKey of \(int\|string\) of interface Illuminate\\Contracts\\Pagination\\LengthAwarePaginator\.$#'
+			identifier: generics.notSubtype
+			count: 1
+			path: src/Support/FilterableTable.php
+
+		-
+			message: '#^Method Workbench\\App\\Models\\Product\:\:scopeApplyFilters\(\) should return Illuminate\\Database\\Eloquent\\Builder\<static\(Workbench\\App\\Models\\Product\)\> but returns Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\.$#'
+			identifier: return.type
+			count: 1
+			path: workbench/app/Models/Product.php
+
+		-
+			message: '#^Parameter \#1 \$query of method Laratribe\\AdvancedFilters\\Support\\FilterSet\:\:apply\(\) expects Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>, Illuminate\\Database\\Eloquent\\Builder\<static\(Workbench\\App\\Models\\Product\)\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: workbench/app/Models/Product.php

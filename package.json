@@ -1,0 +1,14 @@
+{
+    "name": "@laratribe/laravel-advanced-filters",
+    "private": true,
+    "type": "module",
+    "description": "Documentation site for laratribe/laravel-advanced-filters",
+    "scripts": {
+        "docs:dev": "vitepress dev docs",
+        "docs:build": "vitepress build docs",
+        "docs:preview": "vitepress preview docs"
+    },
+    "devDependencies": {
+        "vitepress": "^1.6.3"
+    }
+}

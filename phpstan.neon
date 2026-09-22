@@ -1,0 +1,17 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+    # Pre-existing generics/annotation debt in FilterableTable, FilterSet and the
+    # applyFilters scope. Locked in so new code is held to the standard; not a
+    # licence to grow it.
+    - phpstan-baseline.neon
+
+parameters:
+    level: 5
+
+    paths:
+        - src
+        - workbench/app
+
+    # The wire contract is loosely typed by design (mixed values in, arrays out), so
+    # the generic array shapes are documented in phpstan-type aliases rather than enforced.
+    treatPhpDocTypesAsCertain: false

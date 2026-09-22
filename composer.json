@@ -1,0 +1,76 @@
+{
+    "name": "laratribe/laravel-advanced-filters",
+    "description": "Framework-agnostic advanced column filters for Laravel — declare filters on any Eloquent model and render a headless, restyleable filter UI with Blade + Alpine or Livewire.",
+    "keywords": ["laravel", "filters", "eloquent", "blade", "alpine", "livewire", "inertia", "query-builder", "datatable"],
+    "license": "MIT",
+    "homepage": "https://github.com/laratribe/laravel-advanced-filters",
+    "support": {
+        "issues": "https://github.com/laratribe/laravel-advanced-filters/issues",
+        "source": "https://github.com/laratribe/laravel-advanced-filters",
+        "docs": "https://laratribe.github.io/laravel-advanced-filters"
+    },
+    "authors": [
+        {
+            "name": "Ram Sharma",
+            "email": "ram@weblog-media.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/contracts": "^11.0|^12.0",
+        "illuminate/database": "^11.0|^12.0",
+        "illuminate/support": "^11.0|^12.0",
+        "illuminate/view": "^11.0|^12.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0|^10.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "livewire/livewire": "^3.0|^4.0",
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.18"
+    },
+    "suggest": {
+        "livewire/livewire": "Required only if you use the Livewire <livewire:advanced-filters::panel /> adapter."
+    },
+    "autoload": {
+        "psr-4": {
+            "Laratribe\\AdvancedFilters\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Laratribe\\AdvancedFilters\\Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\": "workbench/database/"
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "lint": "pint",
+        "analyse": "phpstan analyse",
+        "workbench:serve": [
+            "@php vendor/bin/testbench serve"
+        ],
+        "post-autoload-dump": [
+            "@php vendor/bin/testbench package:discover --ansi"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Laratribe\\AdvancedFilters\\AdvancedFiltersServiceProvider"
+            ],
+            "aliases": {
+                "AdvancedFilters": "Laratribe\\AdvancedFilters\\Facades\\AdvancedFilters"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
