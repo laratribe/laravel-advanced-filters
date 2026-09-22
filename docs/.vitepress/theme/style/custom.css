@@ -1,0 +1,88 @@
+/**
+ * Brand tokens. Indigo → cyan reads "structured data" and stays distinct from the
+ * Laravel-red most packages in this ecosystem reach for.
+ *
+ * Every colour is declared once here and consumed through these variables, so the
+ * palette can be reskinned without touching a component.
+ */
+:root {
+    --af-brand-1: #4f46e5; /* indigo-600 */
+    --af-brand-2: #0891b2; /* cyan-600  */
+    --af-brand-soft: rgba(79, 70, 229, 0.08);
+    --af-brand-ring: rgba(79, 70, 229, 0.22);
+
+    --af-grid: rgba(15, 23, 42, 0.045);
+    --af-code-bg: #0f172a;
+    --af-code-head: #1e293b;
+
+    /* Map VitePress's own tokens onto the brand so links, buttons and the sidebar follow. */
+    --vp-c-brand-1: var(--af-brand-1);
+    --vp-c-brand-2: #4338ca;
+    --vp-c-brand-3: #3730a3;
+    --vp-c-brand-soft: var(--af-brand-soft);
+
+    --vp-button-brand-bg: var(--af-brand-1);
+    --vp-button-brand-hover-bg: #4338ca;
+    --vp-button-brand-active-bg: #3730a3;
+}
+
+.dark {
+    --af-brand-1: #818cf8; /* indigo-400 */
+    --af-brand-2: #22d3ee; /* cyan-400   */
+    --af-brand-soft: rgba(129, 140, 248, 0.12);
+    --af-brand-ring: rgba(129, 140, 248, 0.28);
+
+    --af-grid: rgba(148, 163, 184, 0.06);
+    --af-code-bg: #0b1120;
+    --af-code-head: #16213a;
+
+    --vp-c-brand-1: var(--af-brand-1);
+    --vp-c-brand-2: #a5b4fc;
+    --vp-c-brand-3: #c7d2fe;
+
+    --vp-button-brand-bg: #4f46e5;
+    --vp-button-brand-hover-bg: #6366f1;
+}
+
+/**
+ * Syntax tokens for the hand-marked code windows.
+ *
+ * Global rather than scoped: the markup is passed through a <slot>, and Vue's scoped
+ * styles wouldn't reach it from inside CodeWindow.vue.
+ */
+.c-key {
+    color: #c084fc;
+}
+.c-cls {
+    color: #7dd3fc;
+}
+.c-fn {
+    color: #fcd34d;
+}
+.c-str {
+    color: #86efac;
+}
+.c-tag {
+    color: #f9a8d4;
+}
+.c-attr {
+    color: #fcd34d;
+}
+.c-var {
+    color: #93c5fd;
+}
+.c-com {
+    color: #64748b;
+}
+
+/* The home page supplies its own full-bleed sections, so strip the doc container's
+   padding and width cap. index.md carries no `hero`/`features` frontmatter, so
+   VitePress renders nothing of its own here — there is nothing to hide. */
+.VPHome .VPContent,
+.VPHome .vp-doc {
+    padding: 0 !important;
+    max-width: none !important;
+}
+.VPHome .vp-doc > div {
+    max-width: none;
+}
