@@ -6,7 +6,7 @@ The server code is identical to [the quick start](/guide/quick-start) — swap `
 ```php
 return Inertia::render('Products/Index', [
     'products'      => $query->paginate(25),
-    'filterFields'  => $query->fieldDefinitions(),
+    'filterFields'  => $query->filterDefinitions(),
     'activeFilters' => $query->activeFilters(),
 ]);
 ```

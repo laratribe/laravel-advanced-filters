@@ -77,7 +77,7 @@ class FilterSet
      *
      * @return list<array<string, mixed>>
      */
-    public function fieldDefinitions(): array
+    public function filterDefinitions(): array
     {
         return array_map(
             fn (FilterContract $filter) => $this->serializeField($filter),

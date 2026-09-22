@@ -6,7 +6,7 @@ package's public API and follows SemVer.
 
 ## Field definitions (out)
 
-From `Model::filterFieldsForFrontend()` or `FilteredQuery::fieldDefinitions()`:
+From `Model::filterDefinitions()` or `FilteredQuery::filterDefinitions()`:
 
 ```jsonc
 [

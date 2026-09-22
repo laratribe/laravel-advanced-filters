@@ -17,7 +17,7 @@ Applying or removing a filter reloads the table — a full-page visit by default
 
 | Prop | Default | Purpose |
 |---|---|---|
-| `fields` | — | Field definitions from `filterFieldsForFrontend()` |
+| `fields` | — | Field definitions from `filterDefinitions()` |
 | `active` | `[]` | Normalised active rows |
 | `base-url` | current URL | Where applying a filter navigates |
 | `mode` | config | `navigate` or `fetch` |

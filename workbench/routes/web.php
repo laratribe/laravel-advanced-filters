@@ -26,7 +26,7 @@ Route::get('/', function (Request $request) {
 
     return view('workbench::index', [
         'products' => $query->paginate(15),
-        'filterFields' => $query->fieldDefinitions(),
+        'filterFields' => $query->filterDefinitions(),
         'activeFilters' => $query->activeFilters(),
     ]);
 })->name('products.index');

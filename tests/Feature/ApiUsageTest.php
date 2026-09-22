@@ -20,7 +20,7 @@ beforeEach(function () {
 });
 
 it('serves field definitions as JSON', function () {
-    $definitions = FilterTestModel::filterFieldsForFrontend();
+    $definitions = FilterTestModel::filterDefinitions();
 
     // Must survive a JSON round trip unchanged — this is what a JS client consumes.
     $decoded = json_decode((string) json_encode($definitions), true);

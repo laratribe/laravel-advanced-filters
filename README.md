@@ -69,7 +69,7 @@ $products = Product::query()
 
 return view('products.index', [
     'products'      => $products,
-    'filterFields'  => Product::filterFieldsForFrontend(),
+    'filterFields'  => Product::filterDefinitions(),
     'activeFilters' => $filters,
 ]);
 ```

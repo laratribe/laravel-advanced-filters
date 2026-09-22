@@ -35,7 +35,7 @@ whatever the request says.
 ## 2. Filter and paginate
 
 The trait gives you three things: `normalizeFilters()` to validate request input, the
-`applyFilters()` query scope, and `filterFieldsForFrontend()` for the UI.
+`applyFilters()` query scope, and `filterDefinitions()` for the UI.
 
 ```php
 public function index(Request $request)
@@ -51,7 +51,7 @@ public function index(Request $request)
 
     return view('products.index', [
         'products'      => $products,
-        'filterFields'  => Product::filterFieldsForFrontend(),
+        'filterFields'  => Product::filterDefinitions(),
         'activeFilters' => $columnFilters,
     ]);
 }
@@ -80,7 +80,7 @@ $query = FilteredQuery::for(Product::class)
 
 return view('products.index', [
     'products'      => $query->paginate(25),
-    'filterFields'  => $query->fieldDefinitions(),
+    'filterFields'  => $query->filterDefinitions(),
     'activeFilters' => $query->activeFilters(),
 ]);
 ```

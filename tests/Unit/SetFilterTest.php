@@ -49,7 +49,7 @@ it('exposes only equals when clause selector is hidden', function () {
 });
 
 it('serialises options to optionItems for the frontend', function () {
-    $definition = collect(FilterTestModel::filterFieldsForFrontend())->firstWhere('key', 'status');
+    $definition = collect(FilterTestModel::filterDefinitions())->firstWhere('key', 'status');
 
     expect($definition)->not->toHaveKey('options')
         ->and($definition['optionItems'])->toContain(['value' => 'active', 'label' => 'Active']);

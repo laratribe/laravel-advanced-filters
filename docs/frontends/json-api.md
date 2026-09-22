@@ -13,7 +13,7 @@ use Laratribe\AdvancedFilters\Support\FilteredQuery;
 // GET /api/products/filters — the column list, for building your UI
 public function filters()
 {
-    return response()->json(['fields' => Product::filterFieldsForFrontend()]);
+    return response()->json(['fields' => Product::filterDefinitions()]);
 }
 
 // GET|POST /api/products — filtered, paginated results

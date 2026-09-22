@@ -26,7 +26,7 @@ interface Filterable
      *
      * @return list<array<string, mixed>>
      */
-    public static function filterFieldsForFrontend(): array;
+    public static function filterDefinitions(): array;
 
     /**
      * Validate and normalise raw filter input from the request (the wire contract IN).
@@ -34,11 +34,4 @@ interface Filterable
      * @return array<int, FilterRow>
      */
     public static function normalizeFilters(mixed $raw): array;
-
-    /**
-     * Alias of {@see normalizeFilters()} — the cleaned rows to echo back to the frontend.
-     *
-     * @return array<int, FilterRow>
-     */
-    public static function activeFilters(mixed $raw): array;
 }

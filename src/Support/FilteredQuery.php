@@ -21,7 +21,7 @@ use Laratribe\AdvancedFilters\Contracts\Filterable;
  *
  *     return view('campaigns.index', [
  *         'campaigns'     => $query->paginate(50),
- *         'filterFields'  => $query->fieldDefinitions(),
+ *         'filterFields'  => $query->filterDefinitions(),
  *         'activeFilters' => $query->activeFilters(),
  *     ]);
  *
@@ -111,9 +111,9 @@ class FilteredQuery
      *
      * @return list<array<string, mixed>>
      */
-    public function fieldDefinitions(): array
+    public function filterDefinitions(): array
     {
-        return ($this->model)::filterFieldsForFrontend();
+        return ($this->model)::filterDefinitions();
     }
 
     /**

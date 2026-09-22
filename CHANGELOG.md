@@ -12,7 +12,7 @@ First release.
 ### The engine
 
 - `HasFilters` trait — declare filters with a `filters()` method on any Eloquent model, and
-  get `normalizeFilters()`, the `applyFilters()` query scope, and `filterFieldsForFrontend()`.
+  get `normalizeFilters()`, the `applyFilters()` query scope, and `filterDefinitions()`.
 - Four filter types: `TextFilter` (multi-line input → OR), `NumericFilter` (`WHERE` or
   `HAVING` for aggregates via `havingExpression()`), `DateFilter` (strict `Y-m-d`), and
   `SetFilter` (`options()`, `pluckOptionsFromModel()`, `multiple()`, `withoutClause()`).
@@ -20,6 +20,8 @@ First release.
 - `FilteredQuery` — optional controller sugar folding normalise → apply → paginate into one
   chain. Named for what it produces: it builds a filtered query, and knows nothing about
   tables, columns or rendering.
+- One name per concept: `filterDefinitions()` returns the field definitions on the model,
+  the `FilterSet` and `FilteredQuery` alike, rather than three names for one array.
 - `filters()` is an allow-list: an undeclared field, a disallowed operator, or a value that
   fails validation is dropped before it reaches SQL rather than raising an error.
 

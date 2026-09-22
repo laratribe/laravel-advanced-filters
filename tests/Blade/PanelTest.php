@@ -10,7 +10,7 @@ function renderPanel(array $extra = []): string
     return Blade::render(
         '<x-advanced-filters::panel :fields="$fields" :active="$active" :base-url="$baseUrl" />',
         array_merge([
-            'fields' => FilterTestModel::filterFieldsForFrontend(),
+            'fields' => FilterTestModel::filterDefinitions(),
             'active' => [],
             'baseUrl' => 'https://example.test/records',
         ], $extra)
@@ -70,7 +70,7 @@ it('renders a custom input partial registered at runtime', function () {
 it('restricts the rendered inputs when asked', function () {
     $html = Blade::render(
         '<x-advanced-filters::panel :fields="$fields" :inputs="[\'string\']" />',
-        ['fields' => FilterTestModel::filterFieldsForFrontend()]
+        ['fields' => FilterTestModel::filterDefinitions()]
     );
 
     expect($html)->toContain("selectedField().input === 'string'")
@@ -90,7 +90,7 @@ it('renders panel markup supplied by the host app', function () {
 
     $html = Blade::render(
         '<x-advanced-filters::panel :fields="$fields" view="af-test::panel" />',
-        ['fields' => FilterTestModel::filterFieldsForFrontend()]
+        ['fields' => FilterTestModel::filterDefinitions()]
     );
 
     expect($html)->toContain('my-own-panel')

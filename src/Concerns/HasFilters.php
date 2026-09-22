@@ -29,14 +29,6 @@ trait HasFilters
     }
 
     /**
-     * @return array<string, FilterContract>
-     */
-    public static function filtersKeyed(): array
-    {
-        return static::filterSet()->keyed();
-    }
-
-    /**
      * @return list<string>
      */
     public static function allowedFilterFields(): array
@@ -49,9 +41,9 @@ trait HasFilters
      *
      * @return list<array<string, mixed>>
      */
-    public static function filterFieldsForFrontend(): array
+    public static function filterDefinitions(): array
     {
-        return static::filterSet()->fieldDefinitions();
+        return static::filterSet()->filterDefinitions();
     }
 
     /**
@@ -62,17 +54,6 @@ trait HasFilters
     public static function normalizeFilters(mixed $raw): array
     {
         return static::filterSet()->normalize($raw);
-    }
-
-    /**
-     * Alias of {@see normalizeFilters()} — the cleaned, validated rows to hand back to the
-     * frontend as the active filters (mirrors FilteredQuery::activeFilters()).
-     *
-     * @return array<int, FilterRow>
-     */
-    public static function activeFilters(mixed $raw): array
-    {
-        return static::normalizeFilters($raw);
     }
 
     /**

@@ -72,7 +72,7 @@ accidentally become the weak link in validation.
 
 A Blade component, a Livewire component, a Vue component, or none of the above. The only
 contract is [the wire contract](/guide/wire-contract): render
-`Model::filterFieldsForFrontend()`, collect `{field, operator, value, valueTo?}` rows, hand
+`Model::filterDefinitions()`, collect `{field, operator, value, valueTo?}` rows, hand
 them back through `normalizeFilters()` / `applyFilters()`.
 
 If you want the two-step builder behaviour without the packaged markup, bind your own markup

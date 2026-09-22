@@ -53,14 +53,6 @@ it('is idempotent: applying already-normalised rows gives the same result', func
     expect($names)->toEqualCanonicalizing(['Alice', 'Bob']);
 });
 
-it('exposes activeFilters() as an alias of normalizeFilters()', function () {
-    $raw = [['field' => 'score', 'operator' => 'equals', 'value' => '10']];
-
-    expect(FilterTestModel::activeFilters($raw))
-        ->toBe(FilterTestModel::normalizeFilters($raw))
-        ->toBe([['field' => 'score', 'operator' => 'equals', 'value' => 10.0]]);
-});
-
 it('applies a multi-value set filter', function () {
     $rows = FilterTestModel::normalizeFilters([
         ['field' => 'status', 'operator' => 'in', 'value' => ['active', 'archived']],
@@ -93,7 +85,7 @@ it('ANDs multiple filter rows together', function () {
 });
 
 it('exposes the field definitions wire contract', function () {
-    $fields = FilterTestModel::filterFieldsForFrontend();
+    $fields = FilterTestModel::filterDefinitions();
 
     expect($fields)->toHaveCount(5)
         ->and($fields[0])->toMatchArray(['key' => 'name', 'label' => 'Name', 'type' => 'string'])

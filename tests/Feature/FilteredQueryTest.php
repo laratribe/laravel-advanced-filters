@@ -48,7 +48,7 @@ it('paginates with the query string appended', function () {
 it('exposes field definitions', function () {
     $table = FilteredQuery::for(FilterTestModel::class);
 
-    expect($table->fieldDefinitions())->toHaveCount(5);
+    expect($table->filterDefinitions())->toHaveCount(5);
 });
 
 it('rejects a model that is not Filterable', function () {

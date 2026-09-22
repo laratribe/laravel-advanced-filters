@@ -70,7 +70,7 @@ it('still rejects operators the filter does not declare', function () {
 });
 
 it('exposes the custom operator in the field definitions', function () {
-    $fields = collect(CustomClauseTestModel::filterFieldsForFrontend())->keyBy('key');
+    $fields = collect(CustomClauseTestModel::filterDefinitions())->keyBy('key');
 
     expect($fields['published_at']['clauses'])->toContain('within_last_days')
         ->and($fields['published_at']['clauseItems'])->toContain([

@@ -53,7 +53,7 @@ class Panel extends Component
     #[Computed]
     public function fields(): array
     {
-        return ($this->model)::filterFieldsForFrontend();
+        return ($this->model)::filterDefinitions();
     }
 
     public function addFilter(string $field, string $operator, mixed $value = null, mixed $valueTo = null): void
