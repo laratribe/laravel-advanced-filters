@@ -1,6 +1,6 @@
 {
     "name": "laratribe/laravel-advanced-filters",
-    "description": "Framework-agnostic advanced column filters for Laravel — declare filters on any Eloquent model and render a headless, restyleable filter UI with Blade + Alpine or Livewire.",
+    "description": "Advanced column filters for Laravel. Text, numeric, date and set filters with custom operators and strict allow-listing — declared once on an Eloquent model, then rendered with Blade + Alpine, Livewire, Inertia or as a JSON API.",
     "keywords": ["laravel", "filters", "eloquent", "blade", "alpine", "livewire", "inertia", "query-builder", "datatable"],
     "license": "MIT",
     "homepage": "https://github.com/laratribe/laravel-advanced-filters",
