@@ -38,7 +38,7 @@ const STEPS = [
 
 <span class="c-key">return</span> <span class="c-fn">view</span>(<span class="c-str">'products.index'</span>, [
     <span class="c-str">'products'</span> =&gt; <span class="c-var">$products</span>,
-    <span class="c-str">'fields'</span> =&gt; <span class="c-cls">Product</span>::<span class="c-fn">filterFieldsForFrontend</span>(),
+    <span class="c-str">'fields'</span> =&gt; <span class="c-cls">Product</span>::<span class="c-fn">filterDefinitions</span>(),
     <span class="c-str">'active'</span> =&gt; <span class="c-cls">Product</span>::<span class="c-fn">normalizeFilters</span>(<span class="c-var">$filters</span>),
 ]);`,
     },
