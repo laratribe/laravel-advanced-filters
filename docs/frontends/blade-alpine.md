@@ -2,6 +2,11 @@
 
 The default frontend. No build step required.
 
+:::tip See it running
+[advanced-filters.laratribe.com/blade](https://advanced-filters.laratribe.com/blade) —
+expand *“The code behind this page”* for the model, route and view behind it.
+:::
+
 ```blade
 <x-advanced-filters::panel
     :fields="$filterFields"

@@ -107,9 +107,19 @@ const features = [
 			<div class="af-cta">
 				<h2>Three steps to a working filter UI.</h2>
 				<p>No build step required, and nothing to publish unless you want to restyle it.</p>
-				<a class="af-cta__btn" :href="withBase('/guide/quick-start')">
-					Read the quick start <span aria-hidden="true">→</span>
-				</a>
+				<div class="af-cta__row">
+					<a class="af-cta__btn" :href="withBase('/guide/quick-start')">
+						Read the quick start <span aria-hidden="true">→</span>
+					</a>
+					<a
+						class="af-cta__btn af-cta__btn--ghost"
+						href="https://advanced-filters.laratribe.com"
+						target="_blank"
+						rel="noreferrer"
+					>
+						Or try the live demo
+					</a>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -252,5 +262,20 @@ const features = [
 }
 .af-cta__btn:hover {
 	filter: brightness(1.07);
+}
+.af-cta__row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	justify-content: center;
+}
+.af-cta__btn--ghost {
+	color: var(--vp-c-text-1);
+	background: var(--vp-c-bg);
+	border: 1px solid var(--vp-c-divider);
+}
+.af-cta__btn--ghost:hover {
+	filter: none;
+	border-color: var(--af-brand-1);
 }
 </style>

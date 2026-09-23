@@ -7,7 +7,12 @@
 Declare filters once on an Eloquent model, then render them with **Blade + Alpine**,
 **Livewire**, **Inertia (Vue/React)**, or no UI at all as a **JSON API**.
 
-📖 **[Full documentation](https://laratribe.github.io/laravel-advanced-filters)**
+📖 **[Documentation](https://laratribe.github.io/laravel-advanced-filters)** &nbsp;·&nbsp;
+🚀 **[Live demo](https://advanced-filters.laratribe.com)** &nbsp;·&nbsp;
+💻 **[Demo source](https://github.com/laratribe/laravel-advanced-filters-demo)**
+
+The demo is one model with seven filters, driving a Blade + Alpine page, a Livewire page and a
+JSON API — each page shows the code behind it.
 
 - 🔌 **One trait** — add `HasFilters` and a `filters()` method to a model. That's the setup.
 - 🪞 **Self-describing** — the server tells the frontend which columns exist, which operators each allows, their labels and how many values they take. That's what makes a generic panel possible.

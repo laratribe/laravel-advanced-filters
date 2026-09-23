@@ -2,6 +2,11 @@
 
 Works on **Livewire 3 and 4**. The adapter registers itself only when Livewire is installed.
 
+:::tip See it running
+[advanced-filters.laratribe.com/livewire](https://advanced-filters.laratribe.com/livewire) —
+filtering with no page reload, driven by the same model as the Blade page.
+:::
+
 ```blade
 <livewire:advanced-filters::panel :model="\App\Models\Product::class" />
 ```

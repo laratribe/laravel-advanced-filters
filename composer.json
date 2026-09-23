@@ -7,7 +7,8 @@
     "support": {
         "issues": "https://github.com/laratribe/laravel-advanced-filters/issues",
         "source": "https://github.com/laratribe/laravel-advanced-filters",
-        "docs": "https://laratribe.github.io/laravel-advanced-filters"
+        "docs": "https://laratribe.github.io/laravel-advanced-filters",
+        "demo": "https://advanced-filters.laratribe.com"
     },
     "authors": [
         {

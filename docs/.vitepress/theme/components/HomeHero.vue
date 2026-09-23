@@ -57,6 +57,15 @@ async function copyInstall() {
 						Start building <span aria-hidden="true">→</span>
 					</a>
 					<a
+						class="af-btn af-btn--ghost af-btn--demo"
+						href="https://advanced-filters.laratribe.com"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<span class="af-btn__live" aria-hidden="true" />
+						Live demo
+					</a>
+					<a
 						class="af-btn af-btn--ghost"
 						href="https://github.com/laratribe/laravel-advanced-filters"
 						target="_blank"
@@ -235,6 +244,29 @@ async function copyInstall() {
 }
 .af-btn--ghost:hover {
 	border-color: var(--af-brand-1);
+}
+
+/* The demo is a running app, not a page — the live dot says so at a glance. */
+.af-btn--demo:hover {
+	border-color: #10b981;
+}
+.af-btn__live {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #10b981;
+	box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18);
+	animation: af-live 2s ease-in-out infinite;
+}
+@keyframes af-live {
+	50% {
+		box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	.af-btn__live {
+		animation: none;
+	}
 }
 
 .af-install {

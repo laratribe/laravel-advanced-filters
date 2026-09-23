@@ -5,6 +5,13 @@ Blade, no Alpine, no Livewire. For a SPA, a mobile client, or any UI you render 
 use the package as a filter engine and talk to it through
 [the wire contract](/guide/wire-contract).
 
+:::tip Try the endpoints
+[advanced-filters.laratribe.com/api](https://advanced-filters.laratribe.com/api) has both
+routes live against real data — including
+[`/api/products/filters`](https://advanced-filters.laratribe.com/api/products/filters), so you
+can see the field definitions this page describes before writing any code.
+:::
+
 Two endpoints are usually enough:
 
 ```php

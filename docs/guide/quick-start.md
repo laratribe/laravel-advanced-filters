@@ -2,6 +2,12 @@
 
 Two steps on the server, then pick a frontend.
 
+:::tip Prefer to read the finished thing?
+[advanced-filters.laratribe.com](https://advanced-filters.laratribe.com) runs exactly this,
+and every page shows its own source. The whole app is on GitHub as
+[laravel-advanced-filters-demo](https://github.com/laratribe/laravel-advanced-filters-demo).
+:::
+
 ## 1. Declare filters on your model
 
 ```php

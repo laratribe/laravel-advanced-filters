@@ -11,6 +11,13 @@ return Inertia::render('Products/Index', [
 ]);
 ```
 
+:::tip The props, live
+The demo has no Inertia page, but its
+[JSON API page](https://advanced-filters.laratribe.com/api) serves the exact payload these
+props carry — `filterFields` is
+[`/api/products/filters`](https://advanced-filters.laratribe.com/api/products/filters).
+:::
+
 The package ships no Vue or React component. It ships **the rules**, as framework-free
 functions, so your component is markup and reactivity rather than a reimplementation.
 

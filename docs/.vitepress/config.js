@@ -21,6 +21,8 @@ export default defineConfig({
             { text: 'Frontends', link: '/frontends/blade-alpine' },
             { text: 'Extending', link: '/extending/operators' },
             { text: 'Config', link: '/reference/configuration' },
+            // No trailing arrow in the text — VitePress appends its own external-link icon.
+            { text: 'Live demo', link: 'https://advanced-filters.laratribe.com', target: '_blank' },
         ],
 
         sidebar: [
